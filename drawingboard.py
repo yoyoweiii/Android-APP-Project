@@ -7,6 +7,7 @@ from kivy.uix.label import Label
 from kivy.uix.boxlayout import BoxLayout
 
 class MyPaintWidget(Widget):
+
     def __init__(self, label, **kwargs):
         super(MyPaintWidget, self).__init__(**kwargs)
         self.label = label
@@ -21,11 +22,11 @@ class MyPaintWidget(Widget):
             d = 25
             Ellipse(pos=(touch.x - d / 2, touch.y - d / 2), size=(d, d))
             touch.ud['line'] = Line(points=(touch.x, touch.y))
-            self.update_label_text(f"{touch.ud['line'].points}")
+            self.update_label_text(f"                                                                                                                                             {touch.ud['line'].points}")
 
     def on_touch_move(self, touch):
         touch.ud['line'].points += [touch.x, touch.y]
-        self.update_label_text(f"{[touch.x, touch.y]}")
+        self.update_label_text(f"                                                                                                                                             {[touch.x, touch.y]}")
 
 
 class MyPaintApp(App):
